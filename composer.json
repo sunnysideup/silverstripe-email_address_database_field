@@ -1,23 +1,27 @@
-
 {
     "name": "sunnysideup/email_address_database_field",
     "type": "silverstripe-module",
     "description": "E-mail address database field for the Silverstripe CMS",
-    "keywords": ["emai", "e-mail", "database", "varchar", "field", "model"],
+    "keywords": [
+        "emai",
+        "e-mail",
+        "database",
+        "varchar",
+        "field",
+        "model"
+    ],
     "license": "Sunny Side Up (BSD-3-Clause and CUSTOM)",
-    "authors":[
+    "authors": [
         {
             "name": "Nicolaas Francken",
-            "homepage": "https://github.com/sunnysideup",
-            "email" : "modules@sunnysideup.co.nz",
-            "role" : "lead developer"
+            "email": "modules@sunnysideup.co.nz",
+            "role": "lead developer"
         }
     ],
-    "require":{
+    "require": {
         "silverstripe/framework": "^3"
     },
     "extra": {
         "installer-name": "email_address_database_field"
     }
-
 }
