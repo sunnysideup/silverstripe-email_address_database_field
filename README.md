@@ -15,8 +15,9 @@ Usage in model
 
 ```
 
- usage in templates
+ Usage in templates
  ---
+ 
  
  ```html
 
