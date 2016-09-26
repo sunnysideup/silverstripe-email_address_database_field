@@ -2,9 +2,7 @@
 
 A database field specifically for email addresses.
 
-Usage in model
----
-
+## Usage in model
 
 ```php
 
@@ -15,9 +13,7 @@ Usage in model
 
 ```
 
- Usage in templates
- ---
- 
+## Usage in templates
  
  ```html
 
