@@ -6,11 +6,11 @@ class EmailAddress extends Varchar
         'HiddenEmailAddress' => 'HTMLText',
     );
 
-    /*
-    * Obfuscate all matching emails
-    *
-    * @return string
-    */
+    /**
+     * Obfuscate all matching emails
+     *
+     * @return string
+     */
     public function HiddenEmailAddress()
     {
         $originalString = $this->value;
@@ -35,14 +35,20 @@ class EmailAddress extends Varchar
         return $encodedString;
     }
 
+    
     /**
      * @see DBField::scaffoldFormField()
+     * 
+     * @param string $title (optional)
+     * @param array $params (optional)
+     * 
+     * @return EmailField | NullableField
      */
     public function scaffoldFormField($title = null, $params = null) {
         if(!$this->nullifyEmpty) {
-            return new NullableField(new EmailField($this->name, $title));
+            return NullableField::create(EmailField::crreate($this->name, $title));
         } else {
-            return new EmailField($this->name, $title);
+            return EmailField::create($this->name, $title);
         }
     }
 
