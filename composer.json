@@ -19,7 +19,7 @@
         }
     ],
     "require": {
-        "silverstripe/framework": "^3"
+        "silverstripe/framework": "~3.4"
     },
     "extra": {
         "installer-name": "email_address_database_field"
