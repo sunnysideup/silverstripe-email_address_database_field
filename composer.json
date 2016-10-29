@@ -3,6 +3,9 @@
     "type": "silverstripe-module",
     "description": "E-mail address database field for the Silverstripe CMS",
     "keywords": [
+        "Silverstripe-CMS",
+        "CMS",
+        "Silverstripe",
         "emai",
         "e-mail",
         "database",
@@ -19,7 +22,8 @@
         }
     ],
     "require": {
-        "silverstripe/framework": "~3.4"
+        "silverstripe/framework": "~3.1",
+        "silverstripe/cms": "~3.1"
     },
     "extra": {
         "installer-name": "email_address_database_field"

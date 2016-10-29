@@ -38,18 +38,18 @@ class EmailAddress extends Varchar
     
     /**
      * @see DBField::scaffoldFormField()
-     * 
+     *
      * @param string $title (optional)
      * @param array $params (optional)
-     * 
+     *
      * @return EmailField | NullableField
      */
-    public function scaffoldFormField($title = null, $params = null) {
-        if(!$this->nullifyEmpty) {
+    public function scaffoldFormField($title = null, $params = null)
+    {
+        if (!$this->nullifyEmpty) {
             return NullableField::create(EmailField::crreate($this->name, $title));
         } else {
             return EmailField::create($this->name, $title);
         }
     }
-
 }
