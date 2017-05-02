@@ -15,7 +15,7 @@
 
  * [Developer Docs](docs/en/INDEX.md)
  * [User Guide](docs/en/userguide.md)
- * [API Docs](http://docs.ssmods.com/sunnysideup/email_address_database_field)
+ * [API Docs](http://docs.ssmods.com/sunnysideup/email_address_database_field/classes.xhtml)
 
 ## Requirements
 
