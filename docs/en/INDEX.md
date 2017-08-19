@@ -55,24 +55,7 @@ Adding a tab to the CMS page where emails can be added in a GridField.
 
     }
 
-    class Page_Controller extends ContentController 
-    {
-    }
 
-
-    class Page_Email extends DataObject
-    {
-
-        private static $db = array(
-            'Title' => 'EmailAddress'
-        );
-
-        private static $has_one = array(
-            'Page' => 'Page'
-        );
-
-
-    }
 ```
 
 ## Template file
