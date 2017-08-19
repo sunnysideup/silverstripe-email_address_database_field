@@ -1,4 +1,4 @@
-#Email Address Database Field
+# Email Address Database Field
 
 A database field specifically for email addresses.
 
@@ -30,8 +30,8 @@ Adding a tab to the CMS page where emails can be added in a GridField.
     class Page extends SiteTree
     {
 
-        private static $has_many = array(
-            'Emails' => 'Page_Email'
+        private static $has_one = array(
+            'Email' => 'EmailAddress'
         );
 
         /**
@@ -43,11 +43,9 @@ Adding a tab to the CMS page where emails can be added in a GridField.
             $fields = parent::getCMSFields();
             $fields->addFieldToTab(
                 'Root.Emails',
-                GridField::create(
-                    'Emails',
-                    'Emails',
-                    Page_Email::get(),
-                    GridFieldConfig_RecordEditor::create()
+                EmailField::create(
+                    'Email',
+                    'Email'
                 )
             );
             return $fields;
@@ -61,13 +59,7 @@ Adding a tab to the CMS page where emails can be added in a GridField.
 ## Template file
 
 ```html
-    <% loop $Emails %>
-    <ul id="emails">
-        <li>
-            <a href="mailto:$Title.HiddenEmailAddress.RAW">$Title.HiddenEmailAddress.RAW</a>
-        </li>
-    </ul>
-    <% end_loop %>
+    <a href="mailto:$Title.HiddenEmailAddress.RAW">$Title.HiddenEmailAddress.RAW</a>
 ```
 
 # Credits
