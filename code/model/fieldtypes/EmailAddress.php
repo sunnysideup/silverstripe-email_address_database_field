@@ -47,7 +47,7 @@ class EmailAddress extends Varchar
     public function scaffoldFormField($title = null, $params = null)
     {
         if (!$this->nullifyEmpty) {
-            return NullableField::create(EmailField::crreate($this->name, $title));
+            return NullableField::create(EmailField::create($this->name, $title));
         } else {
             return EmailField::create($this->name, $title);
         }
