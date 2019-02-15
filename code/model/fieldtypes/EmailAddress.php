@@ -35,7 +35,12 @@ class EmailAddress extends Varchar
         return $encodedString;
     }
 
-    
+    public function BreakAtSymbol()
+    {
+        return str_replace("@", "@<wbr>", $this->value);
+    }
+
+
     /**
      * @see DBField::scaffoldFormField()
      *
