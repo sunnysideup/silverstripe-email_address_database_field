@@ -58,3 +58,4 @@ class EmailAddress extends Varchar
         }
     }
 }
+
