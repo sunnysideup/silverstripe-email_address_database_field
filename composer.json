@@ -36,5 +36,10 @@
         "silverstripe/siteconfig": "*",
         "silverstripe/versioned": "*"
     },
-    "extra": []
+    "extra": [],
+    "autoload": {
+        "psr-4": {
+            "Sunnysideup\\EmailAddressDatabaseField\\": "code/"
+        }
+    }
 }
