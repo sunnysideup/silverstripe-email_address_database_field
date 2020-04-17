@@ -36,7 +36,5 @@
         "silverstripe/siteconfig": "*",
         "silverstripe/versioned": "*"
     },
-    "extra": {
-        "installer-name": "email_address_database_field"
-    }
+    "extra": []
 }
