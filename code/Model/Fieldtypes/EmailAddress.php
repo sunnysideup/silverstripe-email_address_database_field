@@ -2,20 +2,15 @@
 
 namespace Sunnysideup\EmailAddressDatabaseField\Model\Fieldtypes;
 
-
-
-
 use SilverStripe\Forms\EmailField;
 use SilverStripe\Forms\NullableField;
 use SilverStripe\ORM\FieldType\DBVarchar;
 
-
-
 class EmailAddress extends DBVarchar
 {
-    private static $casting = array(
+    private static $casting = [
         'HiddenEmailAddress' => 'HTMLText',
-    );
+    ];
 
     /**
      * Obfuscate all matching emails
@@ -32,10 +27,10 @@ class EmailAddress extends DBVarchar
             $encodeMode = rand(1, 2); // Switch encoding odd/even
             switch ($encodeMode) {
                 case 1: // Decimal code
-                    $nowCodeString = '&#'.ord($originalString[$i]).';';
+                    $nowCodeString = '&#' . ord($originalString[$i]) . ';';
                     break;
                 case 2: // Hexadecimal code
-                    $nowCodeString = '&#x'.dechex(ord($originalString[$i])).';';
+                    $nowCodeString = '&#x' . dechex(ord($originalString[$i])) . ';';
                     break;
                 default:
                     return 'ERROR: wrong encoding mode.';
@@ -48,9 +43,8 @@ class EmailAddress extends DBVarchar
 
     public function BreakAtSymbol()
     {
-        return str_replace("@", "@<wbr>", $this->value);
+        return str_replace('@', '@<wbr>', $this->value);
     }
-
 
     /**
      * @see DBField::scaffoldFormField()
@@ -62,11 +56,9 @@ class EmailAddress extends DBVarchar
      */
     public function scaffoldFormField($title = null, $params = null)
     {
-        if (!$this->nullifyEmpty) {
+        if (! $this->nullifyEmpty) {
             return NullableField::create(EmailField::create($this->name, $title));
-        } else {
-            return EmailField::create($this->name, $title);
         }
+        return EmailField::create($this->name, $title);
     }
 }
-
