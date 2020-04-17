@@ -2,9 +2,13 @@
 
 namespace Sunnysideup\EmailAddressDatabaseField\Model\Fieldtypes;
 
-use DBVarchar;
-use NullableField;
-use EmailField;
+
+
+
+use SilverStripe\Forms\EmailField;
+use SilverStripe\Forms\NullableField;
+use SilverStripe\ORM\FieldType\DBVarchar;
+
 
 
 class EmailAddress extends DBVarchar
