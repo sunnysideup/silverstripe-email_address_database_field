@@ -1,6 +1,6 @@
 <?php
 
-class EmailAddress extends Varchar
+class EmailAddress extends DBVarchar
 {
     private static $casting = array(
         'HiddenEmailAddress' => 'HTMLText',
