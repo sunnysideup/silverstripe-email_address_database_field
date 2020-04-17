@@ -1,6 +1,6 @@
 {
     "name": "sunnysideup/email_address_database_field",
-    "type": "silverstripe-module",
+    "type": "silverstripe-vendormodule",
     "description": "E-mail address database field for the Silverstripe CMS",
     "keywords": [
         "Silverstripe-CMS",
