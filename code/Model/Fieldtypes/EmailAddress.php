@@ -1,5 +1,12 @@
 <?php
 
+namespace Sunnysideup\EmailAddressDatabaseField\Model\Fieldtypes;
+
+use DBVarchar;
+use NullableField;
+use EmailField;
+
+
 class EmailAddress extends DBVarchar
 {
     private static $casting = array(
