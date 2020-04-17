@@ -1,6 +1,6 @@
 {
     "name": "sunnysideup/email_address_database_field",
-    "type": "silverstripe-module",
+    "type": "silverstripe-vendormodule",
     "description": "E-mail address database field for the Silverstripe CMS",
     "keywords": [
         "Silverstripe-CMS",
@@ -22,10 +22,24 @@
         }
     ],
     "require": {
-        "silverstripe/framework": "~3.6",
-        "silverstripe/cms": "~3.6"
+        "silverstripe/recipe-cms": "^4.4",
+        "silverstripe/assets": "*",
+        "silverstripe/config": "*",
+        "silverstripe/admin": "*",
+        "silverstripe/cms": "*",
+        "silverstripe/asset-admin": "*",
+        "silverstripe/campaign-admin": "*",
+        "silverstripe/versioned-admin": "*",
+        "silverstripe/errorpage": "*",
+        "silverstripe/graphql": "*",
+        "silverstripe/reports": "*",
+        "silverstripe/siteconfig": "*",
+        "silverstripe/versioned": "*"
     },
-    "extra": {
-        "installer-name": "email_address_database_field"
+    "extra": [],
+    "autoload": {
+        "psr-4": {
+            "Sunnysideup\\EmailAddressDatabaseField\\": "code/"
+        }
     }
 }

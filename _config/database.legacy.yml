@@ -1,0 +1,4 @@
+SilverStripe\ORM\DatabaseAdmin:
+  classname_value_remapping:
+    classname_value_remapping:
+      Sunnysideup\EmailAddressDatabaseField\Model\Fieldtypes\EmailAddress: Sunnysideup\EmailAddressDatabaseField\Model\Fieldtypes\EmailAddress

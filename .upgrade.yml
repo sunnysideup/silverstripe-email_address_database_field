@@ -1,0 +1,2 @@
+mappings:
+  EmailAddress: Sunnysideup\EmailAddressDatabaseField\Model\Fieldtypes\EmailAddress

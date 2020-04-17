@@ -1,6 +1,17 @@
 <?php
 
-class EmailAddress extends Varchar
+namespace Sunnysideup\EmailAddressDatabaseField\Model\Fieldtypes;
+
+
+
+
+use SilverStripe\Forms\EmailField;
+use SilverStripe\Forms\NullableField;
+use SilverStripe\ORM\FieldType\DBVarchar;
+
+
+
+class EmailAddress extends DBVarchar
 {
     private static $casting = array(
         'HiddenEmailAddress' => 'HTMLText',
@@ -58,3 +69,4 @@ class EmailAddress extends Varchar
         }
     }
 }
+
