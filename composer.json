@@ -39,7 +39,7 @@
     "extra": [],
     "autoload": {
         "psr-4": {
-            "Sunnysideup\\EmailAddressDatabaseField\\": "code/"
+            "Sunnysideup\\EmailAddressDatabaseField\\": "src/"
         }
     }
 }
