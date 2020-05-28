@@ -6,7 +6,7 @@
         "Silverstripe-CMS",
         "CMS",
         "Silverstripe",
-        "emai",
+        "email",
         "e-mail",
         "database",
         "varchar",
@@ -39,7 +39,7 @@
     "extra": [],
     "autoload": {
         "psr-4": {
-            "Sunnysideup\\EmailAddressDatabaseField\\": "code/"
+            "Sunnysideup\\EmailAddressDatabaseField\\": "src/"
         }
     }
 }
