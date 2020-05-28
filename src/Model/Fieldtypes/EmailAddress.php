@@ -10,6 +10,7 @@ class EmailAddress extends DBVarchar
 {
     private static $casting = [
         'HiddenEmailAddress' => 'HTMLText',
+        'BreakAtSymbol' => 'HTMLText',
     ];
 
     /**
@@ -17,7 +18,17 @@ class EmailAddress extends DBVarchar
      *
      * @return string
      */
-    public function HiddenEmailAddress()
+    public function HiddenEmailAddress() : string
+    {
+        return $this->getHiddenEmailAddress();
+    }
+
+    /**
+     * Obfuscate all matching emails
+     *
+     * @return string
+     */
+    public function getHiddenEmailAddress() : string
     {
         $originalString = $this->value;
         $encodedString = '';
@@ -41,9 +52,20 @@ class EmailAddress extends DBVarchar
         return $encodedString;
     }
 
-    public function BreakAtSymbol()
+    public function BreakAtSymbol(?bool $obfuscated = false) : string
     {
-        return str_replace('@', '@<wbr>', $this->value);
+        return $this->getBreakAtSymbol($obfuscated);
+    }
+
+    public function getBreakAtSymbol($obfuscated = false) : string
+    {
+        if($obfuscated) {
+            $value = $this->getHiddenEmailAddress();
+        } else {
+            $value = $this->value;
+        }
+
+        return str_replace('@', '@<wbr>', $value);
     }
 
     /**
