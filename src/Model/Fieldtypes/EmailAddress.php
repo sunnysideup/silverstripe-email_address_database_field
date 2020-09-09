@@ -57,7 +57,7 @@ class EmailAddress extends DBVarchar
         return $this->getBreakAtSymbol($obfuscated);
     }
 
-    public function getBreakAtSymbol($obfuscated = false) : string
+    public function getBreakAtSymbol(?bool $obfuscated = false) : string
     {
         if($obfuscated) {
             $value = $this->getHiddenEmailAddress();
