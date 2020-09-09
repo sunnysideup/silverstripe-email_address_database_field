@@ -17,7 +17,7 @@ class EmailAddress extends DBVarchar
     /**
      * Obfuscate all matching emails
      *
-     * @return string
+     * @return DBHTMLText
      */
     public function HiddenEmailAddress(): DBHTMLText
     {
@@ -27,20 +27,33 @@ class EmailAddress extends DBVarchar
     /**
      * Obfuscate all matching emails
      *
-     * @return string
+     * @return DBHTMLText
      */
     public function getHiddenEmailAddress(): DBHTMLText
     {
         $encodedString = $this->encodeValue();
 
-        return self::create_field('HTMLText', $encodedString);
+        /** @var DBHTMLText */
+        $var = DBHTMLText::create_field('HTMLText', $encodedString);
+        $var->RAW();
+        return $var;
     }
 
+    /**
+     *
+     * @param  bool|null    $obfuscated
+     * @return DBHTMLText
+     */
     public function BreakAtSymbol(?bool $obfuscated = false): DBHTMLText
     {
         return $this->getBreakAtSymbol($obfuscated);
     }
 
+    /**
+     *
+     * @param  bool|null    $obfuscated
+     * @return DBHTMLText
+     */
     public function getBreakAtSymbol(?bool $obfuscated = false): DBHTMLText
     {
         if ($obfuscated) {
@@ -48,8 +61,12 @@ class EmailAddress extends DBVarchar
         } else {
             $value = $this->value;
         }
+        $encodedString = str_replace('@', '@<wbr>', $value);
+        /** @var DBHTMLText */
+        $var = DBHTMLText::create_field('HTMLText', $encodedString);
+        $var->RAW();
 
-        return self::create_field('HTMLText', str_replace('@', '@<wbr>', $value));
+        return $var;
     }
 
     /**
@@ -58,7 +75,7 @@ class EmailAddress extends DBVarchar
      * @param string $title (optional)
      * @param array $params (optional)
      *
-     * @return EmailField | NullableField
+     * @return EmailField|NullableField
      */
     public function scaffoldFormField($title = null, $params = null)
     {
