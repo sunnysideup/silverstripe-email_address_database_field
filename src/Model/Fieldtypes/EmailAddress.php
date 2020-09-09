@@ -4,8 +4,8 @@ namespace Sunnysideup\EmailAddressDatabaseField\Model\Fieldtypes;
 
 use SilverStripe\Forms\EmailField;
 use SilverStripe\Forms\NullableField;
-use SilverStripe\ORM\FieldType\DBVarchar;
 use SilverStripe\ORM\FieldType\DBHTMLText;
+use SilverStripe\ORM\FieldType\DBVarchar;
 
 class EmailAddress extends DBVarchar
 {
@@ -19,7 +19,7 @@ class EmailAddress extends DBVarchar
      *
      * @return string
      */
-    public function HiddenEmailAddress() : DBHTMLText
+    public function HiddenEmailAddress(): DBHTMLText
     {
         return $this->getHiddenEmailAddress();
     }
@@ -29,22 +29,22 @@ class EmailAddress extends DBVarchar
      *
      * @return string
      */
-    public function getHiddenEmailAddress() : DBHTMLText
+    public function getHiddenEmailAddress(): DBHTMLText
     {
         $encodedString = $this->encodeValue();
 
         return self::create_field('HTMLText', $encodedString);
     }
 
-    public function BreakAtSymbol(?bool $obfuscated = false) : DBHTMLText
+    public function BreakAtSymbol(?bool $obfuscated = false): DBHTMLText
     {
         return $this->getBreakAtSymbol($obfuscated);
     }
 
-    public function getBreakAtSymbol(?bool $obfuscated = false) : DBHTMLText
+    public function getBreakAtSymbol(?bool $obfuscated = false): DBHTMLText
     {
-        if($obfuscated) {
-            $value = $$encodedString = $this->encodeValue();
+        if ($obfuscated) {
+            $value = ${$encodedString} = $this->encodeValue();
         } else {
             $value = $this->value;
         }
@@ -68,7 +68,7 @@ class EmailAddress extends DBVarchar
         return EmailField::create($this->name, $title);
     }
 
-    protected function encodeValue() : string
+    protected function encodeValue(): string
     {
         $originalString = $this->value;
         $encodedString = '';
