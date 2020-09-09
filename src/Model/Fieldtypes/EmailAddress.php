@@ -40,7 +40,6 @@ class EmailAddress extends DBVarchar
     }
 
     /**
-     *
      * @param  bool|null    $obfuscated
      * @return DBHTMLText
      */
@@ -50,7 +49,6 @@ class EmailAddress extends DBVarchar
     }
 
     /**
-     *
      * @param  bool|null    $obfuscated
      * @return DBHTMLText
      */
