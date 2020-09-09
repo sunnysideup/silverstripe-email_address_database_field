@@ -8,17 +8,18 @@ A database field specifically for email addresses.
 
     MyClass extends DataObject
     {
-        private static $db = array("MyEmail" => "EmailAddress");
+        private static $db = [
+            "MyEmail" => "EmailAddress"
+        ];
     }
 ```
 
 ## Usage in templates
  
 ```html
-    $MyEmail.HiddenEmailAddress.RAW
+    $MyEmail.HiddenEmailAddress
 ```
 
-The `RAW` part is important.
 
 # Example
 
@@ -59,7 +60,7 @@ Adding a tab to the CMS page where emails can be added in a GridField.
 ## Template file
 
 ```html
-    <a href="mailto:$Title.HiddenEmailAddress.RAW">$Title.HiddenEmailAddress.RAW</a>
+    <a href="mailto:$Title.HiddenEmailAddress">$Title.HiddenEmailAddress</a>
 ```
 
 # Credits
