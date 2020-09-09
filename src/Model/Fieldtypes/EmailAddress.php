@@ -30,6 +30,45 @@ class EmailAddress extends DBVarchar
      */
     public function getHiddenEmailAddress() : string
     {
+        $encodedString = $this->encodeValue();
+
+        return self::create_field('HTMLTextField', $encodedString);
+    }
+
+    public function BreakAtSymbol(?bool $obfuscated = false) : string
+    {
+        return $this->getBreakAtSymbol($obfuscated);
+    }
+
+    public function getBreakAtSymbol(?bool $obfuscated = false) : string
+    {
+        if($obfuscated) {
+            $value = $$encodedString = $this->encodeValue();
+        } else {
+            $value = $this->value;
+        }
+
+        return self::create_field('HTMLTextField', str_replace('@', '@<wbr>', $value));
+    }
+
+    /**
+     * @see DBField::scaffoldFormField()
+     *
+     * @param string $title (optional)
+     * @param array $params (optional)
+     *
+     * @return EmailField | NullableField
+     */
+    public function scaffoldFormField($title = null, $params = null)
+    {
+        if (! $this->nullifyEmpty) {
+            return NullableField::create(EmailField::create($this->name, $title));
+        }
+        return EmailField::create($this->name, $title);
+    }
+    
+    protected function encodeValue() : string
+    {
         $originalString = $this->value;
         $encodedString = '';
         $nowCodeString = '';
@@ -48,39 +87,6 @@ class EmailAddress extends DBVarchar
             }
             $encodedString .= $nowCodeString;
         }
-
         return $encodedString;
-    }
-
-    public function BreakAtSymbol(?bool $obfuscated = false) : string
-    {
-        return $this->getBreakAtSymbol($obfuscated);
-    }
-
-    public function getBreakAtSymbol(?bool $obfuscated = false) : string
-    {
-        if($obfuscated) {
-            $value = $this->getHiddenEmailAddress();
-        } else {
-            $value = $this->value;
-        }
-
-        return str_replace('@', '@<wbr>', $value);
-    }
-
-    /**
-     * @see DBField::scaffoldFormField()
-     *
-     * @param string $title (optional)
-     * @param array $params (optional)
-     *
-     * @return EmailField | NullableField
-     */
-    public function scaffoldFormField($title = null, $params = null)
-    {
-        if (! $this->nullifyEmpty) {
-            return NullableField::create(EmailField::create($this->name, $title));
-        }
-        return EmailField::create($this->name, $title);
     }
 }
