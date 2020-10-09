@@ -60,7 +60,7 @@ Adding a tab to the CMS page where emails can be added in a GridField.
 ## Template file
 
 ```html
-    <a href="mailto:$Title.HiddenEmailAddress">$Title.HiddenEmailAddress</a>
+    <a href="mailto:$Email.HiddenEmailAddress">$Email.HiddenEmailAddress</a>
 ```
 
 # Credits
