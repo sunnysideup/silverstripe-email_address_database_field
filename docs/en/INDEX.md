@@ -31,9 +31,9 @@ Adding a tab to the CMS page where emails can be added in a GridField.
     class Page extends SiteTree
     {
 
-        private static $has_one = array(
+        private static $db = [
             'Email' => 'EmailAddress'
-        );
+        ];
 
         /**
          * CMS Fields
