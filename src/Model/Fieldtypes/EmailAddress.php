@@ -19,9 +19,9 @@ class EmailAddress extends DBVarchar
      *
      * @return DBHTMLText
      */
-    public function HiddenEmailAddress(): DBHTMLText
+    public function HiddenEmailAddress(?int $seed = 0): DBHTMLText
     {
-        return $this->getHiddenEmailAddress();
+        return $this->getHiddenEmailAddress($seed);
     }
 
     /**
@@ -29,9 +29,9 @@ class EmailAddress extends DBVarchar
      *
      * @return DBHTMLText
      */
-    public function getHiddenEmailAddress(): DBHTMLText
+    public function getHiddenEmailAddress(?int $seed = 0): DBHTMLText
     {
-        $encodedString = $this->encodeValue();
+        $encodedString = $this->encodeValue($seed);
 
         /** @var DBHTMLText */
         $var = DBHTMLText::create_field('HTMLText', $encodedString);
@@ -83,20 +83,23 @@ class EmailAddress extends DBVarchar
         return EmailField::create($this->name, $title);
     }
 
-    protected function encodeValue(): string
+    protected function encodeValue(?int $seed = 0): string
     {
         $originalString = $this->value;
         $encodedString = '';
         $nowCodeString = '';
         $originalLength = strlen($this->value);
         for ($i = 0; $i < $originalLength; ++$i) {
-            $encodeMode = rand(1, 2); // Switch encoding odd/even
+            $encodeMode = rand(1, 3); // Switch encoding odd/even
             switch ($encodeMode) {
                 case 1: // Decimal code
                     $nowCodeString = '&#' . ord($originalString[$i]) . ';';
                     break;
                 case 2: // Hexadecimal code
                     $nowCodeString = '&#x' . dechex(ord($originalString[$i])) . ';';
+                    break;
+                case 3: // normal
+                    $nowCodeString = $originalString[$i];
                     break;
                 default:
                     return 'ERROR: wrong encoding mode.';
