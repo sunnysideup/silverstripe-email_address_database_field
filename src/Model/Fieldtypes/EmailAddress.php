@@ -16,8 +16,6 @@ class EmailAddress extends DBVarchar
 
     /**
      * Obfuscate all matching emails
-     *
-     * @return DBHTMLText
      */
     public function HiddenEmailAddress(?int $seed = 0): DBHTMLText
     {
@@ -26,32 +24,24 @@ class EmailAddress extends DBVarchar
 
     /**
      * Obfuscate all matching emails
-     *
-     * @return DBHTMLText
      */
     public function getHiddenEmailAddress(?int $seed = 0): DBHTMLText
     {
         $encodedString = $this->encodeValue($seed);
 
-        /** @var DBHTMLText */
+        /** @var DBHTMLText $var */
         $var = DBHTMLText::create_field('HTMLText', $encodedString);
         $var->RAW();
         return $var;
     }
 
-    /**
-     * @param  bool|null    $obfuscated
-     * @return DBHTMLText
-     */
+
     public function BreakAtSymbol(?bool $obfuscated = false): DBHTMLText
     {
         return $this->getBreakAtSymbol($obfuscated);
     }
 
-    /**
-     * @param  bool|null    $obfuscated
-     * @return DBHTMLText
-     */
+
     public function getBreakAtSymbol(?bool $obfuscated = false): DBHTMLText
     {
         if ($obfuscated) {
@@ -60,7 +50,7 @@ class EmailAddress extends DBVarchar
             $value = $this->value;
         }
         $encodedString = str_replace('@', '@<wbr>', $value);
-        /** @var DBHTMLText */
+        /** @var DBHTMLText $var */
         $var = DBHTMLText::create_field('HTMLText', $encodedString);
         $var->RAW();
 
