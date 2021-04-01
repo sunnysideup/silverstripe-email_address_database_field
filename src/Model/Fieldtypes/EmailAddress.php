@@ -35,12 +35,10 @@ class EmailAddress extends DBVarchar
         return $var;
     }
 
-
     public function BreakAtSymbol(?bool $obfuscated = false): DBHTMLText
     {
         return $this->getBreakAtSymbol($obfuscated);
     }
-
 
     public function getBreakAtSymbol(?bool $obfuscated = false): DBHTMLText
     {
