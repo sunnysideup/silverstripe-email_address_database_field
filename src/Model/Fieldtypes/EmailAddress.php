@@ -15,7 +15,7 @@ class EmailAddress extends DBVarchar
     ];
 
     /**
-     * Obfuscate all matching emails
+     * Obfuscate all matching emails.
      */
     public function HiddenEmailAddress(?int $seed = 0): DBHTMLText
     {
@@ -23,7 +23,7 @@ class EmailAddress extends DBVarchar
     }
 
     /**
-     * Obfuscate all matching emails
+     * Obfuscate all matching emails.
      */
     public function getHiddenEmailAddress(?int $seed = 0): DBHTMLText
     {
@@ -32,15 +32,14 @@ class EmailAddress extends DBVarchar
         /** @var DBHTMLText $var */
         $var = DBHTMLText::create_field('HTMLText', $encodedString);
         $var->RAW();
+
         return $var;
     }
-
 
     public function BreakAtSymbol(?bool $obfuscated = false): DBHTMLText
     {
         return $this->getBreakAtSymbol($obfuscated);
     }
-
 
     public function getBreakAtSymbol(?bool $obfuscated = false): DBHTMLText
     {
@@ -56,8 +55,8 @@ class EmailAddress extends DBVarchar
     /**
      * @see DBField::scaffoldFormField()
      *
-     * @param string $title (optional)
-     * @param array $params (optional)
+     * @param string $title  (optional)
+     * @param array  $params (optional)
      *
      * @return EmailField|NullableField
      */
@@ -66,6 +65,7 @@ class EmailAddress extends DBVarchar
         if (! $this->nullifyEmpty) {
             return NullableField::create(EmailField::create($this->name, $title));
         }
+
         return EmailField::create($this->name, $title);
     }
 
@@ -80,18 +80,22 @@ class EmailAddress extends DBVarchar
             switch ($encodeMode) {
                 case 1: // Decimal code
                     $nowCodeString = '&#' . ord($originalString[$i]) . ';';
+
                     break;
                 case 2: // Hexadecimal code
                     $nowCodeString = '&#x' . dechex(ord($originalString[$i])) . ';';
+
                     break;
                 case 3: // normal
                     $nowCodeString = $originalString[$i];
+
                     break;
                 default:
                     return 'ERROR: wrong encoding mode.';
             }
             $encodedString .= $nowCodeString;
         }
+
         return $encodedString;
     }
 }
