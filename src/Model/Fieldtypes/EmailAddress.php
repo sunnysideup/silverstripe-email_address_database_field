@@ -14,6 +14,14 @@ class EmailAddress extends DBVarchar
         'BreakAtSymbol' => 'HTMLText',
     ];
 
+    public function prepValueForDB($value)
+    {
+        // emails are always lowercase.
+        $value = trim(strtolower($value));
+
+        return parent::prepValueForDB($value);
+    }
+
     /**
      * Obfuscate all matching emails.
      */
