@@ -101,6 +101,7 @@ class EmailAddress extends DBVarchar
                 default:
                     return 'ERROR: wrong encoding mode.';
             }
+
             $encodedString .= $nowCodeString;
         }
 
