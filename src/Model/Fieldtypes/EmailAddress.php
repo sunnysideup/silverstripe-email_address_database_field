@@ -82,7 +82,7 @@ class EmailAddress extends DBVarchar
         $originalString = $this->value;
         $encodedString = '';
         $nowCodeString = '';
-        $originalLength = strlen($this->value);
+        $originalLength = strlen( (string) $this->value);
         for ($i = 0; $i < $originalLength; ++$i) {
             $encodeMode = rand(1, 3); // Switch encoding odd/even
             switch ($encodeMode) {
