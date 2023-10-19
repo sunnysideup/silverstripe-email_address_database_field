@@ -52,7 +52,7 @@ class EmailAddress extends DBVarchar
     public function getBreakAtSymbol(?bool $obfuscated = false): DBHTMLText
     {
         $value = $obfuscated ? ${$encodedString} = $this->encodeValue() : $this->value;
-        $encodedString = str_replace('@', '@<wbr>', $value);
+        $encodedString = str_replace('@', '@<wbr>', (string) $value);
         /** @var DBHTMLText $var */
         $var = DBHTMLText::create_field('HTMLText', $encodedString);
         $var->RAW();
