@@ -1,0 +1,24 @@
+---------------------------------
+Running Easy Conding Standards
+---------------------------------
+directory of script: /home/ssu/.config/composer/vendor/bin
+directory to analyse: /var/www/ss4/app/src
+also check (e.g. _config.php file): /var/www/ss4/app/_config.php
+ecs config file: /home/ssu/.config/composer/vendor/bin/../sunnysideup/easy-coding-standards/ecs.yml
+Available settings (in front of command: dir, also, ecsConfig)
+e.g. dir=foo/bar php-sslint-ecs
+---------------------------------
+EasyCodingStandard v6.1.0
+Config file: /home/ssu/.config/composer/vendor/sunnysideup/easy-coding-standards/ecs.yml
+---------------------------------
+Running PHP STAN
+---------------------------------
+directory of script: /home/ssu/.config/composer/vendor/bin
+directory to analyse: /var/www/ss4/app/src
+also check (e.g. _config.php file): /var/www/ss4/app/_config.php
+level: 4 (1/6)
+php stan config file: /home/ssu/.config/composer/vendor/bin/../sunnysideup/easy-coding-standards/phpstan.neon
+Available settings (put in front of command: dir, also, level, stanConfig)
+e.g. dir=foo/bar php-sslint-stan
+---------------------------------
+# analysing /var/www/ss4/app/src
