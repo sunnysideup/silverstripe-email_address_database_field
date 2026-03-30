@@ -2,7 +2,9 @@
 
 namespace Sunnysideup\EmailAddressDatabaseField\Model\Fieldtypes;
 
+use Override;
 use SilverStripe\Forms\EmailField;
+use SilverStripe\Forms\FormField;
 use SilverStripe\Forms\NullableField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\ORM\FieldType\DBVarchar;
@@ -14,10 +16,11 @@ class EmailAddress extends DBVarchar
         'BreakAtSymbol' => 'HTMLText',
     ];
 
-    public function prepValueForDB($value)
+    #[Override]
+    public function prepValueForDB(mixed $value): mixed
     {
         // emails are always lowercase.
-        $value = trim(strtolower($value));
+        $value = trim(strtolower((string) $value));
 
         return parent::prepValueForDB($value);
     }
@@ -64,12 +67,13 @@ class EmailAddress extends DBVarchar
     /**
      * @see DBField::scaffoldFormField()
      *
-     * @param string $title  (optional)
-     * @param array  $params (optional)
+     * @param string|null $title (optional)
+     * @param array $params (optional)
      *
      * @return EmailField|NullableField
      */
-    public function scaffoldFormField($title = null, $params = null)
+    #[Override]
+    public function scaffoldFormField(?string $title = null, array $params = []): ?FormField
     {
         if (! $this->nullifyEmpty) {
             return NullableField::create(EmailField::create($this->name, $title));
@@ -85,7 +89,7 @@ class EmailAddress extends DBVarchar
         $nowCodeString = '';
         $originalLength = strlen((string) $this->value);
         for ($i = 0; $i < $originalLength; ++$i) {
-            $encodeMode = rand(1, 3); // Switch encoding odd/even
+            $encodeMode = random_int(1, 3); // Switch encoding odd/even
             switch ($encodeMode) {
                 case 1: // Decimal code
                     $nowCodeString = '&#' . ord($originalString[$i]) . ';';
