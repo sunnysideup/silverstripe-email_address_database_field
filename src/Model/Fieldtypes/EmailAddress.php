@@ -15,6 +15,9 @@ class EmailAddress extends DBVarchar
         'BreakAtSymbol' => 'HTMLText',
     ];
 
+    /** @TODO SSU RECTOR UPGRADE TASK - DBField::prepValueForDB: Changed type of parameter $value in DBField::prepValueForDB() from dynamic to mixed
+     * @TODO SSU RECTOR UPGRADE TASK - DBField::prepValueForDB: Changed return type for method DBField::prepValueForDB() from dynamic to mixed
+     */
     #[Override]
     public function prepValueForDB($value)
     {
@@ -41,6 +44,7 @@ class EmailAddress extends DBVarchar
 
         /** @var DBHTMLText $var */
         $var = DBHTMLText::create_field('HTMLText', $encodedString);
+        /** @TODO SSU RECTOR UPGRADE TASK - DBField::RAW: Changed return type for method DBField::RAW() from dynamic to mixed */
         $var->RAW();
 
         return $var;
@@ -58,6 +62,7 @@ class EmailAddress extends DBVarchar
         $encodedString = str_replace('@', '@<wbr>', (string) $value);
         /** @var DBHTMLText $var */
         $var = DBHTMLText::create_field('HTMLText', $encodedString);
+        /** @TODO SSU RECTOR UPGRADE TASK - DBField::RAW: Changed return type for method DBField::RAW() from dynamic to mixed */
         $var->RAW();
 
         return $var;
@@ -70,6 +75,10 @@ class EmailAddress extends DBVarchar
      * @param array  $params (optional)
      *
      * @return EmailField|NullableField
+     * @TODO SSU RECTOR UPGRADE TASK - DBField::scaffoldFormField: Changed default value for parameter $params in DBField::scaffoldFormField() from null to []
+     * @TODO SSU RECTOR UPGRADE TASK - DBField::scaffoldFormField: Changed type of parameter $params in DBField::scaffoldFormField() from dynamic to array
+     * @TODO SSU RECTOR UPGRADE TASK - DBField::scaffoldFormField: Changed type of parameter $title in DBField::scaffoldFormField() from dynamic to string|null
+     * @TODO SSU RECTOR UPGRADE TASK - DBField::scaffoldFormField: Changed return type for method DBField::scaffoldFormField() from dynamic to FormField|null
      */
     #[Override]
     public function scaffoldFormField($title = null, $params = null)
