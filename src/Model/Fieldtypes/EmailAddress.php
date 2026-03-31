@@ -17,7 +17,7 @@ class EmailAddress extends DBVarchar
     ];
 
     #[Override]
-    public function prepValueForDB(mixed $value): mixed
+    public function prepValueForDB(mixed $value): array|string|null
     {
         // emails are always lowercase.
         $value = trim(strtolower((string) $value));
