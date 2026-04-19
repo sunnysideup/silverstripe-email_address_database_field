@@ -3,8 +3,12 @@
 namespace Sunnysideup\EmailAddressDatabaseField\Model\Fieldtypes;
 
 use Override;
+<<<<<<< HEAD
 use SilverStripe\Forms\FormField;
+=======
+>>>>>>> origin/HEAD
 use SilverStripe\Forms\EmailField;
+use SilverStripe\Forms\FormField;
 use SilverStripe\Forms\NullableField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\ORM\FieldType\DBVarchar;
@@ -17,7 +21,11 @@ class EmailAddress extends DBVarchar
     ];
 
     #[Override]
+<<<<<<< HEAD
     public function prepValueForDB($value): array|string|null
+=======
+    public function prepValueForDB(mixed $value): array|string|null
+>>>>>>> origin/HEAD
     {
         // emails are always lowercase.
         $value = trim(strtolower((string) $value));
@@ -67,8 +75,8 @@ class EmailAddress extends DBVarchar
     /**
      * @see DBField::scaffoldFormField()
      *
-     * @param string $title  (optional)
-     * @param array  $params (optional)
+     * @param string|null $title (optional)
+     * @param array $params (optional)
      *
      * @return EmailField|NullableField
      */
