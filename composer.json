@@ -30,18 +30,4 @@
             "Sunnysideup\\EmailAddressDatabaseField\\": "src/"
         }
     }
-<<<<<<< HEAD
 }
-=======
-  ],
-  "require": {
-    "silverstripe/framework": "^6.0"
-  },
-  "extra": [],
-  "autoload": {
-    "psr-4": {
-      "Sunnysideup\\EmailAddressDatabaseField\\": "src/"
-    }
-  }
-}
->>>>>>> origin/HEAD
