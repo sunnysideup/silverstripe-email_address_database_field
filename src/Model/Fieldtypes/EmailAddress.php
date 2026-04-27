@@ -3,10 +3,7 @@
 namespace Sunnysideup\EmailAddressDatabaseField\Model\Fieldtypes;
 
 use Override;
-<<<<<<< HEAD
 use SilverStripe\Forms\FormField;
-=======
->>>>>>> origin/HEAD
 use SilverStripe\Forms\EmailField;
 use SilverStripe\Forms\FormField;
 use SilverStripe\Forms\NullableField;
