@@ -5,7 +5,6 @@ namespace Sunnysideup\EmailAddressDatabaseField\Model\Fieldtypes;
 use Override;
 use SilverStripe\Forms\FormField;
 use SilverStripe\Forms\EmailField;
-use SilverStripe\Forms\FormField;
 use SilverStripe\Forms\NullableField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\ORM\FieldType\DBVarchar;
